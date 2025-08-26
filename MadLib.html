@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mad Libs Driving Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     </style>
+</head>
+<body>
+    <div id="screen1" class="screen active-screen">
+    <h2 class="mb-4">Create Your Driving Mad Lib</h2>
+    <div class="mb-3">
+      <label for="PluralNounBox" class="form-label">Plural Noun</label>
+      <input type="text" class="form-control" id="PluralNounBox">
+    </div>
+    <div class="mb-3">
+      <label for="NounBox" class="form-label">Noun</label>
+      <input type="text" class="form-control" id="NounBox">
+    </div>
+    <div class="mb-3">
+      <label for="SongBox" class="form-label">Favorite Song</label>
+      <input type="text" class="form-control" id="SongBox">
+    </div>
+    <div class="mb-3">
+      <label for="VerbBox" class="form-label">Verb</label>
+      <input type="text" class="form-control" id="VerbBox">
+    </div>
+    <button id="Next" class="btn btn-primary">Mad Lib</button>
+  </div>
+
+  <div id="screen2" class="screen">
+    <h2 class="mb-(Mad Lib</h2>
+    <p id="MadLib" class="border p-3 bg-light"></p>
+    <button id="Playagain" class="btn btn-secondary mt-3">Play Again</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function setText(id, text) {
+      document.getElementById(id).textContent = text;
+    }
+
+    function getText(id) {
+      return document.getElementById(id).value;
+    }
+
+
+     document.getElementById("Next").addEventListener("click", function() {
+      var PluralNoun = getText("PluralNounBox");
+      var Noun = getText("NounBox");
+      var Song = getText("SongBox");
+      var Verb = getText("VerbBox");
+
+      var madLib = "Learning to drive is a tricky process.\n" +
+                   "There are a few rules you must follow:\n" +
+                   "1. Keep two " + PluralNoun + " on the steering wheel at all times.\n" +
+                   "2. Step on the " + Noun + " to speed up and the " + Noun + " to slow down.\n" +
+                   "3. Your parents will just love it if you play \"" + Song + "\" on the radio.\n" +
+                   "4. Make sure to honk your horn when you see \"" + Verb + "\" on a street sign.";
+
+      setText("MadLib", madLib);
+      setScreen("screen2");
+    });
+      document.getElementById("Playagain").addEventListener("click", function() {
+      setScreen("screen1");
+      document.getElementById("PluralNounBox").value = "";
+      document.getElementById("NounBox").value = "";
+      document.getElementById("SongBox").value = "";
+      document.getElementById("VerbBox").value = "";
+    });
+  </script>
+
+</body>
+</html>
+  
